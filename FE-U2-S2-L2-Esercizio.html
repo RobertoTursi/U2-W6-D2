@@ -1,0 +1,329 @@
+
+
+    <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+Il progetto non richiede alcuna customizzazione di CSS, dovrai crearlo interamente usando le classi di bootstrap, sia per quello che riguarda il layout che lo stile.
+
+
+Testa frequentemente il tuo lavoro nelle 3 principali risoluzioni (mobile, tablet, desktop) usando i developer tools del 
+browser nella sezione emulazione device, per una maggiore precisione.
+
+Inizia utilizzando i componenti esistenti di Bootstrap 5 per creare la tua pagina (modificali all'occorrenza utilizzando 
+le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col-* in questo ordine per ottenere un layout responsive perfetto.
+
+Esercizi:
+
+1) Implementa una navbar con questi elementi di menu:
+Home
+Saldi
+Welcome Summer
+Last Minute
+Recensioni
+
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+
+2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
+
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
+
+Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
+
+4) Implementa la sezione "Saldi". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande - desktop (quattro sulla stessa linea)
+3 card per destinazioni per linea a schermo medio  - tablet  (una dovrà scomparire)
+2 card per destinazioni per linea a schermo piccolo - mobile (due per linea)
+
+le card avranno un bordo di 2px azzurro chiaro, il bottone azzurro chiaro e testo default
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente. (nessun bordo, ma stesso stile dei bottoni precedenti)
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo extra large
+3 card per destinazioni per linea a schermo grande (desktop)
+2 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e un badge con "best offer" come testo
+
+l'immagine avrà i bordi arrotondati e un'ombra leggera
+per il contenuto: il nome dovrà essere più grande del resto,
+le date dovranno essere formattate con font "monospace",
+il prezzo dovrà essere definito come "lead"
+e il badge sarà scuro
+
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi piccoli.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati 
+dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
+
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina e visualizzare il risultato in un alert.
+
+14) Crea un modale con un campo email e un messaggio.
+
+15) Quando l'utente cliccherà su "Contattaci", il modale dovrà essere visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer" posizionato in alto a destra.
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <!--navbar-->
+    <nav class="navbar px-5 navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid px-5 px-lg-0">
+          <img  src="./img/Evelin_R.png" width="80px" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#saldi">Saldi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#welcomeSummer">Welcome Summer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#offerta">Last Minute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#last">Recensioni</a>
+              </li>
+              
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Cerca posti da sogno" aria-label="Search">
+              <button class="btn btn-outline-success text-danger border border-danger" type="submit">Cerca</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!--fine navbar-->
+
+      <!--inizio card descrizione-->
+      <div class="container py-3 px-5">
+        <div class="p-5 d-flex justify-content-center flex-column align-items-center bg-success-subtle align-items-lg-start">
+            <div class="d-flex py-1  align-items-center">
+                <h1 class=" text-secondary fw-normal">Eveline-R <span class="text-secondary">-</span></h1>
+                <span class="text-secondary"> Feel the Freedom</span>
+            </div>
+            <h3 class="fst-italic border-top border-secondary text-secondary py-1 px-4 px-lg-0 fw-normal">Scopri le destinazioni più calde del momento</h3>
+            <button type="button" class="btn btn-info text-light mt-4 px-5 py-1">Prenota ora</button>
+        </div>
+
+        <!--inizio saldi-->
+      <div class="d-flex justify-content-between mt-5 mb-2">
+        <h6 id="saldi">Saldi</h6>
+        <span onclick="ghostSection(event)" class="text-info">Nascondi sezione</span>
+      </div>
+
+      <div id="nascondi">
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 m-0 w-100">
+            <div class="col border px-0 border-info">
+                <img class="w-100" src="https://placekitten.com/300/200" alt="">
+                <div class="p-2">
+                    <h3>Titolo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                    <button type="button" class="btn btn-info text-dark">Prenota</button>
+                </div>
+            </div>
+            <div class="col border px-0 border-info">
+                <img class="w-100" src="https://placekitten.com/300/200" alt="">
+                <div class="p-2">
+                    <h3>Titolo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                    <button type="button" class="btn btn-info text-dark">Prenota</button>
+                </div>
+            </div>
+            <div class="col border px-0 border-info">
+                <img class="w-100" src="https://placekitten.com/300/200" alt="">
+                <div class="p-2">
+                    <h3>Titolo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                    <button type="button" class="btn btn-info text-dark">Prenota</button>
+                </div>
+            </div>
+            <div class="col border px-0 border-info d-md-none d-lg-block">
+                <img class="w-100" src="https://placekitten.com/300/200" alt="">
+                <div class="p-2">
+                    <h3>Titolo</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                    <button type="button" class="btn btn-info text-dark">Prenota</button>
+                </div>
+            </div>
+          </div>
+      </div>
+      <!--Inizio Welcome summer-->
+      <div class="d-flex justify-content-between mt-5 mb-2">
+        <h6 id="welcomeSummer">Welcome summer</h6>
+        <span class="text-info">Nascondi sezione</span>
+      </div>
+
+      <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-6 m-0 w-100">
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+        <div class="col border px-0 border-info d-md-none d-lg-block">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            <div class="p-2">
+                <h3>Titolo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio animi aut dicta explicabo a, saepe distinctio earum dolor pariatur temporibus sit. Enim ipsa voluptates perspiciatis nam rem saepe aperiam.</p>
+                <button type="button" class="btn btn-info text-dark">Prenota</button>
+            </div>
+        </div>
+      </div>
+
+      <!--inizio offerta del giorno-->
+      <div class="d-flex justify-content-between mt-5 mb-2 d-none d-md-flex">
+        <h6 id="offerta">Offerta del giorno</h6>
+      </div>
+
+      <div class="row d-none d-md-flex">
+        <div class="col col-lg-8"><img class="w-100" src="https://placekitten.com/300/200" alt=""></div>
+        <div class="col col-lg-4">
+            <h2 class="fs-1">Fushifaru <br /> Maldives</h2>
+            <p class="mb-3">15.01.2021-31.01.2021</p>
+            <p class="mb-3">Ville a partire da 500$, <br/> non fartele sfuggire</p>
+            <button type="button" class="btn btn-dark rounded-pill">Best offer</button>
+        </div>
+      </div>
+
+      <!--Inizio last minute-->
+      <div class="d-flex justify-content-between mt-5 mb-2 d-none d-md-flex">
+        <h6 id="last">Last Minute</h6>
+      </div>
+
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6 mt">
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+        <div class="col border px-0 border-info">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+        <div class="col border px-0 border-info d-none d-md-block">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+        <div class="col border px-0 border-info d-none d-lg-block">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+        <div class="col border px-0 border-info d-none d-xl-block">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+        <div class="col border px-0 border-info d-none d-xl-block">
+            <img class="w-100" src="https://placekitten.com/300/200" alt="">
+            
+        </div>
+      </div>
+
+      </div>
+      
+      
+
+
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <script>
+        const ghostSection = (elem) =>{
+             
+             console.log(elem.target.innerText)
+             if(elem.target.innerText === "Nascondi sezione") {
+                let section = document.getElementById("nascondi")
+                section.style.display = "none"
+                elem.target.innerText = "Mostra sezione"
+             } else if(elem.target.innerText === "Mostra sezione"){
+                let section = document.getElementById("nascondi")
+                section.style.display = "block"
+                elem.target.innerText = "Nascondi sezione"
+             }
+        }
+
+        const removeCard = () =>{
+            let cards = document.querySelectorAll(".col")
+            cards.forEach(card =>{
+                card.remove()
+            })
+        }
+
+      </script>
+  </body>
+</html>
